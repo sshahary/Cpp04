@@ -1,25 +1,34 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
-int main()
-{
-    // Create Animal objects
-    Animal animal;
-    Dog dog;
-    Cat cat;
+int main() {
+    // Creating Animal objects
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
 
-    // Call makeSound function for each animal
-    animal.makeSound();
-    dog.makeSound();
-    cat.makeSound();
+    std::cout << j->getType() << " " << std::endl;
+    std::cout << i->getType() << " " << std::endl;
+    i->makeSound(); // will output the cat sound
+    j->makeSound(); // will output the dog sound
+    meta->makeSound(); // will output the generic animal sound
 
-    // Test copy constructor and assignment operator
-    Dog anotherDog(dog);
-    anotherDog.makeSound();
+    delete meta;
+    delete j;
+    delete i;
 
-    Cat anotherCat = cat;
-    anotherCat.makeSound();
+    // Creating WrongAnimal objects
+    const WrongAnimal* metaWrong = new WrongAnimal();
+    const WrongAnimal* iWrong = new WrongCat();
+
+    std::cout << iWrong->getType() << " " << std::endl;
+    iWrong->makeSound(); // will output the WrongAnimal sound
+
+    delete metaWrong;
+    delete iWrong;
 
     return 0;
 }

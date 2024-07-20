@@ -1,30 +1,29 @@
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
 #include <iostream>
 #include <string>
 
-class Animal
+class WrongAnimal
 {
     protected:
     std::string type;
     public:
     // Constructor
-    Animal();
+    WrongAnimal();
     
     // Copy constructor
-    Animal(const Animal& other);
+    WrongAnimal(const WrongAnimal& other);
     
     // Copy assignment operator
-    Animal& operator=(const Animal& other);
+    WrongAnimal& operator=(const WrongAnimal& other);
     
     // Destructor
-    virtual ~Animal();
+    ~WrongAnimal();
 
     // Member function
-    virtual void makeSound() const;
+    void makeSound() const;
     std::string getType() const;
-
 };
 
 #endif
